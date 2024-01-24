@@ -117,5 +117,90 @@ namespace ValueConverter
                 comboBoxTarget.SelectedIndex = 0;
             }
         }
+
+        private void button_1_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "1";
+        }
+
+        private void button_2_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "2";
+        }
+
+        private void button_3_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "3";
+        }
+
+        private void button_4_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "4";
+        }
+
+        private void button_5_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "5";
+        }
+
+        private void button_6_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "6";
+        }
+
+        private void button_7_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "7";
+        }
+
+        private void button_8_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "8";
+        }
+
+        private void button_9_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "9";
+        }
+
+        private void button_0_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "0";
+        }
+
+        private void button_addit_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "+";
+        }
+
+        private void button_sub_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "-";
+        }
+
+        private void button_mult_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "*";
+        }
+
+        private void button_divid_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += "/";
+        }
+
+        private void button_C_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = "";
+        }
+
+        private void button_point_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text += ",";
+        }
+
+        private void button_del_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+        }
     }
 }
