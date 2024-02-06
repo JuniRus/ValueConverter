@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
+using System.Data;
 using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace ValueConverter
 {
@@ -122,7 +123,14 @@ namespace ValueConverter
         /// <param name="e"></param>
         private void button_enter_Click(object sender, RoutedEventArgs e)
         {
-            double value = Convert.ToDouble(textBox.Text);
+            if(textBox.Text == "" || textBox.Text == null)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            DataTable dataTable = new DataTable();
+            double value = Convert.ToDouble(dataTable.Compute(textBox.Text, ""));
 
             // При выборке площади.
             if(comboBoxForm.SelectedIndex == 0)
@@ -421,21 +429,21 @@ namespace ValueConverter
                 }
 
                 // Центнеры --> граммы.
-                if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 1)
+                else if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 1)
                 {
                     result = value * Math.Pow(10, 5);
                     textBox.Text = result.ToString();
                 }
 
                 // Центнеры --> килограммы.
-                if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 2)
+                else if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 2)
                 {
                     result = value * 100;
                     textBox.Text = result.ToString();
                 }
 
                 // Центнеры --> Тонны.
-                if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 4)
+                else if (comboBoxDefault.SelectedIndex == 3 && comboBoxTarget.SelectedIndex == 4)
                 {
                     result = value / 10;
                     textBox.Text = result.ToString();
@@ -707,7 +715,7 @@ namespace ValueConverter
 
         private void button_point_Click(object sender, RoutedEventArgs e)
         {
-            textBox.Text += ",";
+            textBox.Text += ".";
         }
 
         private void button_del_Click(object sender, RoutedEventArgs e)
