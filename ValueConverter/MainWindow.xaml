@@ -12,7 +12,8 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1.6*"/>
         </Grid.RowDefinitions>
         
         <!--Сетка первого ряда; содержит выборку конвертаций-->
@@ -25,7 +26,8 @@
             
             <!--Первая колонка ряда, содержит форму конвертации-->
             <StackPanel Grid.Column="0">
-                <Label VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18"
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center" 
+                       FontSize="18"
                        Content="Форма конвертации">
                 </Label>
                 <ComboBox x:Name="comboBoxForm" VerticalAlignment="Stretch" 
@@ -40,26 +42,40 @@
 
             <!--Вторая колонка ряда, содержит исходную величину конвертации-->
             <StackPanel Grid.Column="1">
-                <Label VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18"
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center" 
+                       FontSize="18"
                        Content="Исходное измерение">
                 </Label>
-                <ComboBox x:Name="comboBoxDefault" VerticalAlignment="Stretch" Margin="10" Padding="20" FontSize="16"/>
+                <ComboBox x:Name="comboBoxDefault" VerticalAlignment="Stretch" 
+                          Margin="10" Padding="20" FontSize="16"/>
             </StackPanel>
 
             <!--Третья колонка ряда, содержит целевую величину конвертации-->
             <StackPanel Grid.Column="2">
-                <Label VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18"
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center" 
+                       FontSize="18"
                        Content="Целевое измерение">
                 </Label>
-                <ComboBox x:Name="comboBoxTarget" VerticalAlignment="Stretch" Margin="10" Padding="20" FontSize="16"/>
+                <ComboBox x:Name="comboBoxTarget" VerticalAlignment="Stretch"
+                          Margin="10" Padding="20" FontSize="16"/>
             </StackPanel>
         </Grid>
 
-        <!--Средний ряд: ввод/вывод информации-->
+        <!--Второй ряд: ввод/вывод информации-->
         <TextBox x:Name="textBox" Grid.Row="1" FontSize="16"/>
+        
+        <!--Третий ряд: состояние ввода.вывода-->
+        <StackPanel Grid.Row="2" ClipToBounds="False" Background="PapayaWhip">
+            <Label x:Name="statusLabel" Grid.Row="2" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Center"
+                   Margin="5"
+                   ClipToBounds="False"
+                   FontSize="13"/>
+        </StackPanel>
 
         <!--Нижний ряд, содержащий кнопки-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0,5*"/>
                 <ColumnDefinition/>
@@ -68,16 +84,16 @@
 
             <!--Цифры-->
             <UniformGrid Grid.Row="2" Columns="5" HorizontalAlignment="Stretch">
-                <Button x:Name="button_1" Click="button_1_Click">1</Button>
-                <Button x:Name="button_2" Click="button_2_Click">2</Button>
-                <Button x:Name="button_3" Click="button_3_Click">3</Button>
-                <Button x:Name="button_4" Click="button_4_Click">4</Button>
-                <Button x:Name="button_5" Click="button_5_Click">5</Button>
-                <Button x:Name="button_6" Click="button_6_Click">6</Button>
-                <Button x:Name="button_7" Click="button_7_Click">7</Button>
-                <Button x:Name="button_8" Click="button_8_Click">8</Button>
-                <Button x:Name="button_9" Click="button_9_Click">9</Button>
-                <Button x:Name="button_0" Click="button_0_Click">0</Button>
+                <Button x:Name="button_1" Click="button_1_Click" Background="AliceBlue">1</Button>
+                <Button x:Name="button_2" Click="button_2_Click" Background="AliceBlue">2</Button>
+                <Button x:Name="button_3" Click="button_3_Click" Background="AliceBlue">3</Button>
+                <Button x:Name="button_4" Click="button_4_Click" Background="AliceBlue">4</Button>
+                <Button x:Name="button_5" Click="button_5_Click" Background="AliceBlue">5</Button>
+                <Button x:Name="button_6" Click="button_6_Click" Background="AliceBlue">6</Button>
+                <Button x:Name="button_7" Click="button_7_Click" Background="AliceBlue">7</Button>
+                <Button x:Name="button_8" Click="button_8_Click" Background="AliceBlue">8</Button>
+                <Button x:Name="button_9" Click="button_9_Click" Background="AliceBlue">9</Button>
+                <Button x:Name="button_0" Click="button_0_Click" Background="AliceBlue">0</Button>
             </UniformGrid>
 
             <Grid Grid.Column="1">
@@ -88,10 +104,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" x:Name="button_addit" FontSize="16" Click="button_addit_Click">+</Button>
-                <Button Grid.Row="1" x:Name="button_sub" FontSize="16" Click="button_sub_Click">-</Button>
-                <Button Grid.Row="2" x:Name="button_mult" FontSize="16" Click="button_mult_Click">*</Button>
-                <Button Grid.Row="3" x:Name="button_divid" FontSize="16" Click="button_divid_Click">/</Button>
+                <Button Grid.Row="0" x:Name="button_addit" FontSize="16" Click="button_addit_Click" Background="LightGoldenrodYellow">+</Button>
+                <Button Grid.Row="1" x:Name="button_sub" FontSize="16" Click="button_sub_Click" Background="LightGoldenrodYellow">-</Button>
+                <Button Grid.Row="2" x:Name="button_mult" FontSize="16" Click="button_mult_Click" Background="LightGoldenrodYellow">*</Button>
+                <Button Grid.Row="3" x:Name="button_divid" FontSize="16" Click="button_divid_Click" Background="LightGoldenrodYellow">/</Button>
             </Grid>
 
             <!--Запятая, стрелки ввода и удаления-->
@@ -103,10 +119,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="button_C" Content="C" Grid.Row="0" FontSize="18" Click="button_C_Click"/>
-                <Button x:Name="button_point" Content="." Grid.Row="1" FontSize="18" Click="button_point_Click"/>
-                <Button x:Name="button_del" Content="←" Grid.Row="2" FontSize="18" Click="button_del_Click"/>
-                <Button x:Name="button_enter" Content="→" Grid.Row="3" FontSize="18" Click="button_enter_Click"/>
+                <Button x:Name="button_C" Content="C" Grid.Row="0" FontSize="18" Click="button_C_Click" Background="WhiteSmoke"/>
+                <Button x:Name="button_point" Content="." Grid.Row="1" FontSize="18" Click="button_point_Click" Background="WhiteSmoke"/>
+                <Button x:Name="button_del" Content="←" Grid.Row="2" FontSize="18" Click="button_del_Click" Background="WhiteSmoke"/>
+                <Button x:Name="button_enter" Content="Convert" Grid.Row="3" FontSize="15" Click="button_enter_Click" Background="WhiteSmoke"/>
             </Grid>
         </Grid>
     </Grid>

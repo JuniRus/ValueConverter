@@ -3,6 +3,7 @@ using System.Windows;
 using System.Data;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ValueConverter
 {
@@ -123,8 +124,20 @@ namespace ValueConverter
         /// <param name="e"></param>
         private void button_enter_Click(object sender, RoutedEventArgs e)
         {
+            // Установить надпись состояния в false.s
+            statusLabel.Content = "";
+
+            // Если строка пустая.
             if(textBox.Text == "" || textBox.Text == null)
             {
+                e.Handled = true;
+                return;
+            }
+
+            // Если в строке есть буквы.
+            if(textBox.Text.Any(c => char.IsLetter(c)))
+            {
+                statusLabel.Content = "Ввод не должен содержать букв!";
                 e.Handled = true;
                 return;
             }
@@ -637,6 +650,7 @@ namespace ValueConverter
                 #endregion
             }
         }
+
         #region Buttons
         private void button_1_Click(object sender, RoutedEventArgs e)
         {
@@ -710,6 +724,7 @@ namespace ValueConverter
 
         private void button_C_Click(object sender, RoutedEventArgs e)
         {
+            statusLabel.Content = "";
             textBox.Text = "";
         }
 
@@ -720,6 +735,7 @@ namespace ValueConverter
 
         private void button_del_Click(object sender, RoutedEventArgs e)
         {
+            statusLabel.Content = "";
             textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
         }
         #endregion
