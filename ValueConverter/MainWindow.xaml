@@ -32,7 +32,7 @@
                 </Label>
                 <ComboBox x:Name="comboBoxForm" VerticalAlignment="Stretch" 
                           Margin="10" Padding="20" FontSize="16"
-                          SelectionChanged="comboBoxForm_SelectionChanged">
+                          SelectionChanged="ComboBoxForm_SelectionChanged">
                     <ComboBoxItem>Площадь</ComboBoxItem>
                     <ComboBoxItem>Расстояние</ComboBoxItem>
                     <ComboBoxItem>Масса</ComboBoxItem>
@@ -62,7 +62,7 @@
         </Grid>
 
         <!--Второй ряд: ввод/вывод информации-->
-        <TextBox x:Name="textBox" Grid.Row="1" FontSize="16"/>
+        <TextBox x:Name="textBox" Grid.Row="1" FontSize="17"/>
         
         <!--Третий ряд: состояние ввода.вывода-->
         <StackPanel Grid.Row="2" ClipToBounds="False" Background="PapayaWhip">
@@ -119,10 +119,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="button_C" Content="C" Grid.Row="0" FontSize="18" Click="button_C_Click" Background="WhiteSmoke"/>
-                <Button x:Name="button_point" Content="." Grid.Row="1" FontSize="18" Click="button_point_Click" Background="WhiteSmoke"/>
-                <Button x:Name="button_del" Content="←" Grid.Row="2" FontSize="18" Click="button_del_Click" Background="WhiteSmoke"/>
-                <Button x:Name="button_enter" Content="Convert" Grid.Row="3" FontSize="15" Click="button_enter_Click" Background="WhiteSmoke"/>
+                <Button x:Name="button_C" Content="C" Grid.Row="0" FontSize="18" Click="button_C_Click" Background="#b7e8cc"/>
+                <Button x:Name="button_point" Content="." Grid.Row="1" FontSize="18" Click="button_point_Click" Background="#b7e8cc"/>
+                <Button x:Name="button_del" Content="←" Grid.Row="2" FontSize="18" Click="button_del_Click" Background="#b7e8cc"/>
+                <Button x:Name="button_enter" Content="Convert" Grid.Row="3" FontSize="15" Click="Button_enter_Click" Background="#81e5c7"/>
             </Grid>
         </Grid>
     </Grid>

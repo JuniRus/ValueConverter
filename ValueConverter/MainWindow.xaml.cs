@@ -56,6 +56,7 @@ namespace ValueConverter
         {
             InitializeComponent();
             comboBoxForm.SelectedIndex = 0;
+            textBox.Focus();
 
             // В самом начале отобразить форму в виде площади.
             if(comboBoxForm.SelectedIndex == 0)
@@ -72,7 +73,7 @@ namespace ValueConverter
         /// <summary>
         /// Изменяет comboBox в зависимости от формы конвертации.
         /// </summary>
-        private void comboBoxForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             comboBoxDefault.ItemsSource = null;
             // Отобразить форму площади.
@@ -122,8 +123,9 @@ namespace ValueConverter
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button_enter_Click(object sender, RoutedEventArgs e)
+        private void Button_enter_Click(object sender, RoutedEventArgs e)
         {
+            double value;
             // Установить надпись состояния в false.s
             statusLabel.Content = "";
 
@@ -142,8 +144,24 @@ namespace ValueConverter
                 return;
             }
 
-            DataTable dataTable = new DataTable();
-            double value = Convert.ToDouble(dataTable.Compute(textBox.Text, ""));
+            try
+            {
+                DataTable dataTable = new DataTable();
+                value = Convert.ToDouble(dataTable.Compute(textBox.Text, ""));
+                textBox.Text = value.ToString();
+            }
+            catch (SyntaxErrorException)
+            {
+                e.Handled = true;
+                statusLabel.Content = "Разделителем должна выступать точка, не запятая!";
+                return;
+            }
+            catch(Exception)
+            {
+                e.Handled = true;
+                statusLabel.Content = "Произошла неизвестная ошибка.";
+                return;
+            }
 
             // При выборке площади.
             if(comboBoxForm.SelectedIndex == 0)
