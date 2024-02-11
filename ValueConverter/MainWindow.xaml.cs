@@ -146,6 +146,7 @@ namespace ValueConverter
 
             try
             {
+                // Посчитать числовое выражение и вывести его.
                 DataTable dataTable = new DataTable();
                 value = Convert.ToDouble(dataTable.Compute(textBox.Text, ""));
                 textBox.Text = value.ToString();
