@@ -154,7 +154,8 @@ namespace ValueConverter
             catch (SyntaxErrorException)
             {
                 e.Handled = true;
-                statusLabel.Content = "Разделителем должна выступать точка, не запятая!";
+                statusLabel.Content = "Разделителем должна выступать точка или неверное" +
+                                      " использование арифметических операторов.";
                 return;
             }
             catch(Exception)
